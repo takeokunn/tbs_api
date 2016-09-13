@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -18,4 +18,9 @@ class User extends Model implements AuthenticatableContract,
 
     protected $table = 'users';
     protected $hidden = ['password', 'twitter_id', 'facebook_id'];
+
+    public function profile()
+    {
+        return $this->hasOne('App\Model\Profile');
+    }
 }
