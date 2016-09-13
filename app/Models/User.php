@@ -23,4 +23,9 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasOne('App\Model\Profile');
     }
+
+    public function stocks()
+    {
+        return $this->hasMany('App\Model\Stock');
+    }
 }
