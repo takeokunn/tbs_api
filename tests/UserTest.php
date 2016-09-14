@@ -87,5 +87,14 @@ class UserTest extends TestCase
             '/api/v1/auth/self?token=' . $token,
             'success get me'
         );
+
+        /**
+         * user logout
+         */
+        // success
+        $this->getMethod(
+            '/api/v1/auth/logout?token=' . $token,
+            'success logouted'
+        );
     }
 }
