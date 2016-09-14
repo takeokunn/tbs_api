@@ -15,7 +15,7 @@ class CreateProgramLogsTable extends Migration
         Schema::create('program_logs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('program_id');
-            $table->integer('price');
+            $table->integer('price')->default(0);
             $table->timestamps();
         });
     }

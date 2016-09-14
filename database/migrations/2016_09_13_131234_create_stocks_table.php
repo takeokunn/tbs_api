@@ -16,7 +16,7 @@ class CreateStocksTable extends Migration
             $table->increments('id');
             $table->integer('program_id');
             $table->integer('user_id');
-            $table->integer('stock_number');
+            $table->integer('stock_number')->default(0);
             $table->timestamps();
         });
     }

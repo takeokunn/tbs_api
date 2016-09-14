@@ -15,8 +15,8 @@ class CreateProgramInfosTable extends Migration
         Schema::create('program_infos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('program_id');
-            $table->string('broadcast_time');
-            $table->string('description');
+            $table->string('broadcast_time')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
