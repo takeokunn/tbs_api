@@ -12,4 +12,9 @@ class Program extends Model
     {
         return $this->hasMany('App\Model\Stock');
     }
+
+    public function programInfo()
+    {
+        return $this->hasOne('App\Model\ProgramInfo');
+    }
 }
