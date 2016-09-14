@@ -25,6 +25,8 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::get('auth/self'  , 'V1\UserController@self');
         Route::get('auth/logout', 'V1\UserController@logout');
 
+        Route::get('profiles/{userId}', 'V1\ProfileController@show');
+
         // for develop
         Route::get('jwt_test', function () {});
     });
