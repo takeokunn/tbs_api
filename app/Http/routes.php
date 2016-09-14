@@ -22,7 +22,8 @@ Route::group(['prefix' => '/api/v1'], function ()
 
     Route::group(['middleware' => 'jwt.auth.user'], function ()
     {
-        Route::get('auth/self', 'V1\UserController@self');
+        Route::get('auth/self'  , 'V1\UserController@self');
+        Route::get('auth/logout', 'V1\UserController@logout');
 
         // for develop
         Route::get('jwt_test', function () {});

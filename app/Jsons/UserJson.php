@@ -75,4 +75,17 @@ trait UserJson
             'message' => 'success get me'
         ];
     }
+
+    /**
+     * json format if success logout
+     * @return array
+     */
+    private function successLogouted() : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'message' => 'success logouted'
+        ];
+    }
 }

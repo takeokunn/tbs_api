@@ -64,10 +64,25 @@ class UserController extends Controller
         return response()->json($this->successLogined($token), 200);
     }
 
+    /**
+     * get userdata
+     * @return json
+     */
     public function self()
     {
         $me = $this->user->getLoginedUser();
 
         return response()->json($this->successGotMe($me), 200);
+    }
+
+    /**
+     * user logout
+     * @return json
+     */
+    public function logout()
+    {
+        $this->user->logout();
+
+        return response()->json($this->successLogouted(), 200);
     }
 }

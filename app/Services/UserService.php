@@ -60,6 +60,18 @@ class UserService
     }
 
     /**
+     * logout(jwt-auth)
+     * @return
+     */
+    public function logout()
+    {
+        $token = JWTAuth::getToken();
+        if ($token) {
+            JWTAuth::setToken($token)->invalidate();
+        }
+    }
+
+    /**
      * whether email is existed in User table or not
      * @param  string  $email_
      * @return boolean
