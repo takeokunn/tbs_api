@@ -27,6 +27,23 @@ class ProfileService
     }
 
     /**
+     * update profile
+     * @param  int    $userId_
+     * @param  string $username_
+     * @param  string $description_
+     * @return Object
+     */
+    public function update(int $userId_, string $username_, string $description_)
+    {
+        $profile = Profile::where('user_id', '=', $userId_)->first();
+        $profile->username    = $username_;
+        $profile->description = $description_;
+        $profile->save();
+
+        return $profile;
+    }
+
+    /**
      * get profile by user_id
      * @param  int    $userId_
      * @return Object

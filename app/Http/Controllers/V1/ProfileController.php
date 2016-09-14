@@ -41,4 +41,22 @@ class ProfileController extends Controller
 
         return response()->json($this->successShowProfile($profile), 200);
     }
+
+    /**
+     * update my profile
+     * @param  Request $request
+     * @return json
+     */
+    public function update(Request $request)
+    {
+        $me   = $this->user->getLoginedUser();
+        $data = $request->only('username', 'description');
+
+        if(empty($data['username']) || empty($data['description'])) {
+            return response()->json($this->invalidArgument(), 400);
+        }
+        $this->profile->update($me->id, $data['username'], $data['description']);
+
+        return response()->json($this->successUpdateProfile(), 200);
+    }
 }
