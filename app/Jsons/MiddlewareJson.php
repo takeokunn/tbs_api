@@ -6,6 +6,10 @@ namespace App\Jsons;
 
 trait MiddlewareJson
 {
+    /**
+     * json format if token not provided
+     * @return array
+     */
     private function TokenNotProvided() : array
     {
         return [
@@ -15,6 +19,10 @@ trait MiddlewareJson
         ];
     }
 
+    /**
+     * json format if token expired
+     * @return array
+     */
     private function TokenExpired() : array
     {
         return [
@@ -24,6 +32,10 @@ trait MiddlewareJson
         ];
     }
 
+    /**
+     * json format if token inpired
+     * @return array
+     */
     private function TokenInpired() : array
     {
         return [
@@ -33,6 +45,10 @@ trait MiddlewareJson
         ];
     }
 
+    /**
+     * json format if user not found
+     * @return array
+     */
     private function UserNotFound() : array
     {
         return [

@@ -16,6 +16,11 @@ class ProfileController extends Controller
     private $user;
     private $profile;
 
+    /**
+     * constructor
+     * @param \App\Services\UserService    $user
+     * @param \App\Services\ProfileService $profile
+     */
     public function __construct(
         \App\Services\UserService $user,
         \App\Services\ProfileService $profile
