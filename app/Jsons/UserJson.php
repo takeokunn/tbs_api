@@ -77,6 +77,19 @@ trait UserJson
     }
 
     /**
+     * json format if success update mydata
+     * @return array
+     */
+    private function successUpdated() : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'message' => 'success updated'
+        ];
+    }
+
+    /**
      * json format if success logout
      * @return array
      */

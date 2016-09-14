@@ -75,9 +75,23 @@ class UserController extends Controller
         return response()->json($this->successGotMe($me), 200);
     }
 
-    public function update()
-    {
 
+    /**
+     * update userdata
+     * @param  Request $request
+     * @return json
+     */
+    public function update(Request $request)
+    {
+        $me   = $this->user->getLoginedUser();
+        $data = $request->only('name', 'email');
+
+        if(empty($data['name']) || empty($data['email'])) {
+            return response()->json($this->invalidArgument(), 400);
+        }
+        $this->user->update($me->id, $data['name'], $data['email']);
+
+        return response()->json($this->successUpdated(), 200);
     }
 
     /**

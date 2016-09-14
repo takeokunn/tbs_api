@@ -67,6 +67,16 @@ class UserService
         return User::with('profile')->where('id', '=', $user_id)->first();
     }
 
+    public function update(int $userId_, string $name_, string $email_)
+    {
+        $user = User::where('id', '=', $userId_)->first();
+        $user->name  = $name_;
+        $user->email = $email_;
+        $user->save();
+
+        return $user;
+    }
+
     /**
      * logout(jwt-auth)
      * @return
