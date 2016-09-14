@@ -29,7 +29,8 @@ class UserService
         $user->save();
 
         $profile = new Profile;
-        $profile->user_id = $user->id;
+        $profile->user_id  = $user->id;
+        $profile->username = $name_;
         $profile->save();
 
         return $user;
