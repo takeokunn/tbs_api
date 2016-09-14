@@ -20,6 +20,19 @@ trait CommonJson
     }
 
     /**
+     * json format if invalid parameter
+     * @return array
+     */
+    private function invalidParameter() : array
+    {
+        return [
+            'status'  => 'failure',
+            'code'    => 400,
+            'message' => 'invalid parameter'
+        ];
+    }
+
+    /**
      * json format if permission denied
      * @return array
      */

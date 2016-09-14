@@ -32,7 +32,7 @@ class ProfileController extends Controller
     public function show($userId)
     {
         if(!is_numeric($userId)) {
-            return response()->json($this->invalidArgument(), 400);
+            return response()->json($this->invalidParameter(), 400);
         }
         $profile = $this->profile->getByUserId(intval($userId));
         if(is_null($profile)) {
