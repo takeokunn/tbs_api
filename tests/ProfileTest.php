@@ -34,5 +34,27 @@ class ProfileTest extends TestCase
             '/api/v1/profiles/hogehoge?token=' . $token,
             'invalid parameter'
         );
+
+        /**
+         * update my profile
+         */
+        // success
+        $this->postMethod(
+            '/api/v1/profiles?token=' . $token,
+            'success update profile',
+            ['username' => 'fugafuga', 'description' => 'hogehoge']
+        );
+
+        // failure
+        $this->postMethod(
+            '/api/v1/profiles?token=' . $token,
+            'invalid argument',
+            ['username' => '', 'description' => 'hogehoge']
+        );
+        $this->postMethod(
+            '/api/v1/profiles?token=' . $token,
+            'invalid argument',
+            ['username' => 'fugafuga', 'description' => '']
+        );
     }
 }
