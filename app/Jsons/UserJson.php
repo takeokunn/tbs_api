@@ -72,7 +72,7 @@ trait UserJson
             'status'  => 'success',
             'code'    => 200,
             'data'    => $data_,
-            'message' => 'success got me'
+            'message' => 'success get me'
         ];
     }
 }

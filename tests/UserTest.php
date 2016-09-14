@@ -11,9 +11,10 @@ class UserTest extends TestCase
     public function testExample()
     {
         /**
-         * initialize db seed
+         * initialize db seed && get token
          */
         Artisan::call('db:seed');
+        $token = $this->getToken();
 
         /**
          * register user
@@ -76,6 +77,15 @@ class UserTest extends TestCase
             '/api/v1/auth/login',
             'failure login',
             ['email' => 'test1@gmail.com', 'password' => 'hogehoge']
+        );
+
+        /**
+         * get my data
+         */
+        // success
+        $this->getMethod(
+            '/api/v1/auth/self?token=' . $token,
+            'success get me'
         );
     }
 }
