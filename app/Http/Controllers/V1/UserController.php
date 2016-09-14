@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     use \App\Jsons\UserJson, \App\Jsons\CommonJson;
 
-    private $user = null;
+    private $user;
 
     /**
      * constructor
