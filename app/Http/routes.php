@@ -18,10 +18,12 @@ Route::get('/', function () {
 Route::group(['prefix' => '/api/v1'], function ()
 {
     Route::post('auth/register', 'V1\UserController@register');
-    Route::post('auth/login', 'V1\UserController@login');
+    Route::post('auth/login'   , 'V1\UserController@login');
 
     Route::group(['middleware' => 'jwt.auth.user'], function ()
     {
+        Route::get('auth/self', 'V1\UserController@self');
+
         // for develop
         Route::get('jwt_test', function () {});
     });

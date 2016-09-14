@@ -49,6 +49,17 @@ class UserService
     }
 
     /**
+     * get logined user by jwt-token
+     * @return Object
+     */
+    public function getLoginedUser()
+    {
+        $user_id = JWTAuth::parseToken()->authenticate()->id;
+
+        return User::with('profile')->where('id', '=', $user_id)->first();
+    }
+
+    /**
      * whether email is existed in User table or not
      * @param  string  $email_
      * @return boolean

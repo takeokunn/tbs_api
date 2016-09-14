@@ -60,4 +60,19 @@ trait UserJson
             'message' => 'failure login'
         ];
     }
+
+    /**
+     * json format if success get mydata
+     * @param  Object $data_
+     * @return array
+     */
+    private function successGotMe($data_) : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'data'    => $data_,
+            'message' => 'success got me'
+        ];
+    }
 }
