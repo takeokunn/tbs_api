@@ -23,6 +23,7 @@ Route::group(['prefix' => '/api/v1'], function ()
     Route::group(['middleware' => 'jwt.auth.user'], function ()
     {
         Route::get('auth/self'  , 'V1\UserController@self');
+        Route::get('auth/update', 'V1\UserController@update');
         Route::get('auth/logout', 'V1\UserController@logout');
 
         Route::post('profiles', 'V1\ProfileController@update');

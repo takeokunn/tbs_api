@@ -38,13 +38,20 @@ class UserService
 
     /**
      * login(jwt-auth)
-     * @param  string $email_
+     * @param  string $identify_
      * @param  string $password_
      * @return (string | null)
      */
-    public function login(string $email_, string $password_)
+    public function login(string $identify_, string $password_)
     {
-        $token = JWTAuth::attempt(['email' => $email_, 'password' => $password_]);
+        // if $identify_ is email
+        if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $identify_)) {
+            $token = JWTAuth::attempt(['email' => $identify_, 'password' => $password_]);
+        }
+        // if $identify_ is name
+        else {
+            $token = JWTAuth::attempt(['name' => $identify_, 'password' => $password_]);
+        }
 
         return $token? $token : null;
     }

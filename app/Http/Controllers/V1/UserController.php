@@ -51,12 +51,12 @@ class UserController extends Controller
      */
     public function login(Request $request)
     {
-        $data = $request->only('email', 'password');
+        $data = $request->only('identify', 'password');
 
-        if(empty($data['email']) || empty($data['password'])) {
+        if(empty($data['identify']) || empty($data['password'])) {
             return response()->json($this->invalidArgument(), 400);
         }
-        $token = $this->user->login($data['email'], $data['password']);
+        $token = $this->user->login($data['identify'], $data['password']);
         if (empty($token)) {
             return response()->json($this->failureLogined(), 400);
         }
@@ -73,6 +73,11 @@ class UserController extends Controller
         $me = $this->user->getLoginedUser();
 
         return response()->json($this->successGotMe($me), 200);
+    }
+
+    public function update()
+    {
+
     }
 
     /**

@@ -55,28 +55,33 @@ class UserTest extends TestCase
         $this->postMethod(
             '/api/v1/auth/login',
             'success login',
-            ['email' => 'test1@gmail.com', 'password' => '1234']
+            ['identify' => 'test1@gmail.com', 'password' => '1234']
+        );
+        $this->postMethod(
+            '/api/v1/auth/login',
+            'success login',
+            ['identify' => 'test1', 'password' => '1234']
         );
         // failure
         $this->postMethod(
             '/api/v1/auth/login',
             'invalid argument',
-            ['email' => '', 'password' => '1234']
+            ['identify' => '', 'password' => '1234']
         );
         $this->postMethod(
             '/api/v1/auth/login',
             'invalid argument',
-            ['email' => 'test1@gmail.com', 'password' => '']
+            ['identify' => 'test1@gmail.com', 'password' => '']
         );
         $this->postMethod(
             '/api/v1/auth/login',
             'failure login',
-            ['email' => 'hogehoge@yahoo.co.jp', 'password' => '1234']
+            ['identify' => 'hogehoge@yahoo.co.jp', 'password' => '1234']
         );
         $this->postMethod(
             '/api/v1/auth/login',
             'failure login',
-            ['email' => 'test1@gmail.com', 'password' => 'hogehoge']
+            ['identify' => 'test1@gmail.com', 'password' => 'hogehoge']
         );
 
         /**
