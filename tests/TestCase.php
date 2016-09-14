@@ -22,4 +22,27 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+    /**
+     * method wrapper
+     */
+    protected function getMethod(string $url_, string $message_)
+    {
+        $this->get($url_)->seeJson(['message' => $message_]);
+    }
+
+    protected function postMethod(string $url_, string $message_, array $params_ = [])
+    {
+        $this->post($url_, $params_)->seeJson(['message' => $message_]);
+    }
+
+    protected function putMethod(string $url_, string $message_, array $params_ = [])
+    {
+        $this->put($url_, $params_)->seeJson(['message' => $message_]);
+    }
+
+    protected function deleteMethod(string $url_, string $message_)
+    {
+        $this->delete($url_)->seeJson(['message' => $message_]);
+    }
 }
