@@ -10,11 +10,11 @@ class Stock extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function program()
     {
-        return $this->belongsTo('App\Model\Program');
+        return $this->belongsTo('App\Models\Program');
     }
 }

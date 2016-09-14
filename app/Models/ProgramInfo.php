@@ -10,7 +10,7 @@ class ProgramInfo extends Model
 
     public function program()
     {
-        return $this->belongsTo('App\Model\Program');
+        return $this->belongsTo('App\Models\Program');
     }
 
 }

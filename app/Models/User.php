@@ -18,11 +18,11 @@ class User extends Model implements AuthenticatableContract,
 
     public function profile()
     {
-        return $this->hasOne('App\Model\Profile');
+        return $this->hasOne('App\Models\Profile');
     }
 
     public function stocks()
     {
-        return $this->hasMany('App\Model\Stock');
+        return $this->hasMany('App\Models\Stock');
     }
 }

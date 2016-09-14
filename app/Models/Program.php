@@ -10,16 +10,16 @@ class Program extends Model
 
     public function stocks()
     {
-        return $this->hasMany('App\Model\Stock');
+        return $this->hasMany('App\Models\Stock');
     }
 
     public function programInfo()
     {
-        return $this->hasOne('App\Model\ProgramInfo');
+        return $this->hasOne('App\Models\ProgramInfo');
     }
 
     public function programLog()
     {
-        return $this->hasMany('App\Model\ProgramLog');
+        return $this->hasMany('App\Models\ProgramLog');
     }
 }
