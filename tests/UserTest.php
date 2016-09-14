@@ -94,6 +94,27 @@ class UserTest extends TestCase
         );
 
         /**
+         * update my data
+         */
+        // success
+        $this->postMethod(
+            '/api/v1/auth/update?token=' . $token,
+            'success updated',
+            ['name' => 'hoge', 'email' => 'fugafuga']
+        );
+        // failure
+        $this->postMethod(
+            '/api/v1/auth/update?token=' . $token,
+            'invalid argument',
+            ['name' => '', 'email' => 'fugafuga']
+        );
+        $this->postMethod(
+            '/api/v1/auth/update?token=' . $token,
+            'invalid argument',
+            ['name' => 'hoge', 'email' => '']
+        );
+
+        /**
          * user logout
          */
         // success
