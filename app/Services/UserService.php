@@ -36,6 +36,19 @@ class UserService
     }
 
     /**
+     * login(jwt-auth)
+     * @param  string $email_
+     * @param  string $password_
+     * @return (string | null)
+     */
+    public function login(string $email_, string $password_)
+    {
+        $token = JWTAuth::attempt(['email' => $email_, 'password' => $password_]);
+
+        return $token? $token : null;
+    }
+
+    /**
      * whether email is existed in User table or not
      * @param  string  $email_
      * @return boolean

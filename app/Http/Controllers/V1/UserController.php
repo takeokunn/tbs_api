@@ -43,4 +43,24 @@ class UserController extends Controller
 
         return response()->json($this->successRegistered(), 201);
     }
+
+    /**
+     * user login
+     * @param  Request $request
+     * @return json
+     */
+    public function login(Request $request)
+    {
+        $data = $request->only('email', 'password');
+
+        if(empty($data['email']) || empty($data['password'])) {
+            return response()->json($this->invalidArgument(), 400);
+        }
+        $token = $this->user->login($data['email'], $data['password']);
+        if (empty($token)) {
+            return response()->json($this->failureLogined(), 400);
+        }
+
+        return response()->json($this->successLogined($token), 200);
+    }
 }

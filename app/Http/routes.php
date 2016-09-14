@@ -18,4 +18,5 @@ Route::get('/', function () {
 Route::group(['prefix' => '/api/v1'], function()
 {
     Route::post('auth/register', 'V1\UserController@register');
+    Route::post('auth/login', 'V1\UserController@login');
 });

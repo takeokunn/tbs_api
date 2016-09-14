@@ -7,7 +7,7 @@ namespace App\Jsons;
 trait UserJson
 {
     /**
-     * json format if register userdata successfully
+     * json format if success register userdata
      * @return array
      */
     private function successRegistered() : array
@@ -20,7 +20,7 @@ trait UserJson
     }
 
     /**
-     * json format if register userdata NOT successfully
+     * json format if failure register userdata
      * @return array
      */
     private function failureRegistered() : array
@@ -29,6 +29,35 @@ trait UserJson
             'status'  => 'failure',
             'code'    => 400,
             'message' => 'this email has already existed'
+        ];
+    }
+
+    /**
+     * json format if success login
+     * @param  string $token_
+     * @return array
+     */
+    private function successLogined(string $token_) : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'token'   => $token_,
+            'message' => 'success login'
+        ];
+    }
+
+    /**
+     * json format if failure login
+     * @param  string $token_
+     * @return array
+     */
+    private function failureLogined() : array
+    {
+        return [
+            'status'  => 'failure',
+            'code'    => 400,
+            'message' => 'failure login'
         ];
     }
 }
