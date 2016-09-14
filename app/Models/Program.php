@@ -17,4 +17,9 @@ class Program extends Model
     {
         return $this->hasOne('App\Model\ProgramInfo');
     }
+
+    public function programLog()
+    {
+        return $this->hasMany('App\Model\ProgramLog');
+    }
 }
