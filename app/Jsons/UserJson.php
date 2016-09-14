@@ -15,7 +15,7 @@ trait UserJson
         return [
             'status'  => 'created',
             'code'    => 201,
-            'message' => 'success registered'
+            'message' => 'registered userdata successfully'
         ];
     }
 
@@ -28,7 +28,7 @@ trait UserJson
         return [
             'status'  => 'failure',
             'code'    => 400,
-            'message' => 'This email has already existed.'
+            'message' => 'this email has already existed'
         ];
     }
 }
