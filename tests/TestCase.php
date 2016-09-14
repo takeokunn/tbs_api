@@ -24,6 +24,14 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     }
 
     /**
+     * get auth token
+     */
+    protected function getToken()
+    {
+        return $this->call('POST', '/api/v1/auth/login', ['email' => 'test1@gmail.com', 'password' => '1234'])->getData()->token;
+    }
+
+    /**
      * method wrapper
      */
     protected function getMethod(string $url_, string $message_)

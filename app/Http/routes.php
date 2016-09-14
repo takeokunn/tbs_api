@@ -15,8 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => '/api/v1'], function()
+Route::group(['prefix' => '/api/v1'], function ()
 {
     Route::post('auth/register', 'V1\UserController@register');
     Route::post('auth/login', 'V1\UserController@login');
+
+    Route::group(['middleware' => 'jwt.auth.user'], function ()
+    {
+        // for develop
+        Route::get('jwt_test', function () {});
+    });
 });

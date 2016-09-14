@@ -29,7 +29,16 @@ trait MiddlewareJson
         return [
             'status'  => 'error',
             'code'    => 400,
-            'message' => 'token expired'
+            'message' => 'token inpired'
+        ];
+    }
+
+    private function UserNotFound() : array
+    {
+        return [
+            'status'  => 'error',
+            'code'    => 404,
+            'message' => 'user not found'
         ];
     }
 }
