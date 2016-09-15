@@ -23,5 +23,21 @@ class ProgramTest extends TestCase
             '/api/v1/programs?token=' . $token,
             'success get programs'
         );
+
+        /**
+         * create program
+         */
+        // success
+        $this->postMethod(
+            '/api/v1/programs?token=' . $token,
+            'success create program',
+            ['name' => 'fugafuga']
+        );
+        // failure
+        $this->postMethod(
+            '/api/v1/programs?token=' . $token,
+            'invalid argument',
+            ['name' => '']
+        );
     }
 }

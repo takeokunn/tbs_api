@@ -56,4 +56,17 @@ class ProgramController extends Controller
 
         return response()->json($this->successCreatedProgram(), 201);
     }
+
+    public function show($programId)
+    {
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+        $program = $this->program->getByProgramId(intval($programId));
+        if(is_null($program)) {
+            return response()->json($this->failureShowedProgram(), 400);
+        }
+
+        return response()->json($this->successShowedProgram($profile), 200);
+    }
 }

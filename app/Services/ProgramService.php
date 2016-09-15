@@ -18,6 +18,16 @@ class ProgramService
     }
 
     /**
+     * get program by program_id
+     * @param  int    $programId_
+     * @return Object
+     */
+    public function getByProgramId(int $programId_)
+    {
+        return Profile::with('program_id')->where('id', '=', $programId_)->get();
+    }
+
+    /**
      * create program
      * @param  string $name_
      * @return Object

@@ -32,6 +32,7 @@ Route::group(['prefix' => '/api/v1'], function ()
 
         Route::get ('programs', 'V1\ProgramController@index');
         Route::post('programs', 'V1\ProgramController@create');
+        Route::get ('programs/{programId}', 'V1\ProgramController@show');
 
         // for develop
         Route::get('jwt_test', function () {});
