@@ -10,7 +10,9 @@ class MiddlewareTest extends TestCase
 {
     public function testExample()
     {
-        // get token
+        /**
+         * get token
+         */
         $token = $this->getToken();
 
         /**

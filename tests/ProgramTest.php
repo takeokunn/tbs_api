@@ -11,7 +11,7 @@ class ProgramTest extends TestCase
     public function testExample()
     {
         /**
-         * initialize db seed && get token
+         * get token
          */
         $token = $this->getToken();
 
