@@ -14,5 +14,4 @@ class ProgramInfo extends Model
     {
         return $this->belongsTo('App\Models\Program');
     }
-
 }

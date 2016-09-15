@@ -24,7 +24,7 @@ trait ProfileJson
      * @param  Object $data_
      * @return array
      */
-    private function successShowProfile($data_) : array
+    private function successShowedProfile($data_) : array
     {
         return [
             'status'  => 'success',
@@ -38,7 +38,7 @@ trait ProfileJson
      * json format if success update profile
      * @return array
      */
-    private function successUpdateProfile() : array
+    private function successUpdatedProfile() : array
     {
         return [
             'status' => 'success',

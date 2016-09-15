@@ -41,10 +41,10 @@ class ProfileController extends Controller
         }
         $profile = $this->profile->getByUserId(intval($userId));
         if(is_null($profile)) {
-            return response()->json($this->failureShowProfile(), 400);
+            return response()->json($this->failureShowedProfile(), 400);
         }
 
-        return response()->json($this->successShowProfile($profile), 200);
+        return response()->json($this->successShowedProfile($profile), 200);
     }
 
     /**
@@ -62,6 +62,6 @@ class ProfileController extends Controller
         }
         $this->profile->update($me->id, $data['username'], $data['description']);
 
-        return response()->json($this->successUpdateProfile(), 200);
+        return response()->json($this->successUpdatedProfile(), 200);
     }
 }
