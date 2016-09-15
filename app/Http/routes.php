@@ -30,6 +30,8 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::post('profiles', 'V1\ProfileController@update');
         Route::get ('profiles/{userId}', 'V1\ProfileController@show');
 
+        Route::get ('programs', 'V1\ProgramController@index');
+
         // for develop
         Route::get('jwt_test', function () {});
     });
