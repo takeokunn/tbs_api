@@ -57,6 +57,11 @@ class ProgramController extends Controller
         return response()->json($this->successCreatedProgram(), 201);
     }
 
+    /**
+     * show program
+     * @param  int $programId
+     * @return json
+     */
     public function show($programId)
     {
         if(!is_numeric($programId)) {
