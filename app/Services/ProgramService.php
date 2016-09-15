@@ -16,4 +16,18 @@ class ProgramService
     {
         return Program::with('program_infos')->orderBy('updated_at', 'desc')->get();
     }
+
+    /**
+     * create program
+     * @param  string $name_
+     * @return Object
+     */
+    public function create(string $name_)
+    {
+        $program = new Program;
+        $program->name = $name_;
+        $program->save();
+
+        return $program;
+    }
 }

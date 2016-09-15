@@ -47,6 +47,13 @@ class ProgramController extends Controller
      */
     public function create(Request $request)
     {
-        $data = $request->only('identify', 'password');
+        $data = $request->only('name');
+
+        if(empty($data['name'])) {
+            return response()->json($this->invalidArgument(), 400);
+        }
+        $this->program->create($data['name']);
+
+        return response()->json($this->successCreatedProgram(), 201);
     }
 }

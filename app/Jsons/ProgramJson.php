@@ -15,4 +15,13 @@ trait ProgramJson
             'message' => 'success get programs'
         ];
     }
+
+    private function successCreatedProgram() : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 201,
+            'message' => 'success create program'
+        ];
+    }
 }
