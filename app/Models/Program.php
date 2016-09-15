@@ -15,12 +15,12 @@ class Program extends Model
         return $this->hasMany('App\Models\Stock');
     }
 
-    public function programInfo()
+    public function program_info()
     {
         return $this->hasOne('App\Models\ProgramInfo');
     }
 
-    public function programLog()
+    public function program_log()
     {
         return $this->hasMany('App\Models\ProgramLog');
     }
