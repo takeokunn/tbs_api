@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends AppSeeder
 {
-    private $user = null;
+    private $user;
 
     public function __construct(
         \App\Services\UserService $user
