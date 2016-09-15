@@ -56,5 +56,13 @@ class ProfileTest extends TestCase
             'invalid argument',
             ['username' => 'fugafuga', 'description' => '']
         );
+
+        /**
+         * get profiles
+         */
+        $this->getMethod(
+            '/api/v1/profiles?token=' . $token,
+            'success get profiles'
+        );
     }
 }
