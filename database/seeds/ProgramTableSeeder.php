@@ -27,7 +27,7 @@ class ProgramTableSeeder extends AppSeeder
         ];
 
         foreach ($programs as $index => $program) {
-            $programData = $this->program->create($user['name']);
+            $programData = $this->program->create($program['name']);
             $this->changeId($programData, $index + 1);
         }
     }

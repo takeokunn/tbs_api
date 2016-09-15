@@ -72,6 +72,6 @@ class ProgramController extends Controller
             return response()->json($this->failureShowedProgram(), 400);
         }
 
-        return response()->json($this->successShowedProgram($profile), 200);
+        return response()->json($this->successShowedProgram($program), 200);
     }
 }

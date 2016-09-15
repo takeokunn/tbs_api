@@ -24,7 +24,7 @@ class ProgramService
      */
     public function getByProgramId(int $programId_)
     {
-        return Profile::with('program_id')->where('id', '=', $programId_)->get();
+        return Program::with('program_info')->where('id', '=', $programId_)->first();
     }
 
     /**

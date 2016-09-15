@@ -39,5 +39,23 @@ class ProgramTest extends TestCase
             'invalid argument',
             ['name' => '']
         );
+
+        /**
+         * show programs
+         */
+        // success
+        $this->getMethod(
+            '/api/v1/programs/1?token=' . $token,
+            'success show program'
+        );
+        // failure
+        $this->getMethod(
+            '/api/v1/programs/1111111?token=' . $token,
+            'failure show program'
+        );
+        $this->getMethod(
+            '/api/v1/programs/hogehoge?token=' . $token,
+            'invalid parameter'
+        );
     }
 }
