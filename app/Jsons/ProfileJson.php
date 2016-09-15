@@ -11,7 +11,7 @@ trait ProfileJson
      * @param  Object $data_
      * @return array
      */
-    private function successGetProfiles($data_) : array
+    private function successGotProfiles($data_) : array
     {
         return [
             'status'  => 'success',

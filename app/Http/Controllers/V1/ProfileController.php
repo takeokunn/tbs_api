@@ -37,7 +37,7 @@ class ProfileController extends Controller
     {
         $profiles = $this->profile->getAll();
 
-        return response()->json($this->successGetProfiles($profiles), 200);
+        return response()->json($this->successGotProfiles($profiles), 200);
     }
 
     /**
