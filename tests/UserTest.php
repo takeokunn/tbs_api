@@ -11,9 +11,8 @@ class UserTest extends TestCase
     public function testExample()
     {
         /**
-         * initialize db seed && get token
+         * get token
          */
-        Artisan::call('db:seed');
         $token = $this->getToken();
 
         /**
