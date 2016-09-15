@@ -23,7 +23,6 @@ class ProfileTest extends TestCase
             '/api/v1/profiles/1?token=' . $token,
             'success show profile'
         );
-
         // failure
         $this->getMethod(
             '/api/v1/profiles/1111111?token=' . $token,
@@ -43,7 +42,6 @@ class ProfileTest extends TestCase
             'success update profile',
             ['username' => 'fugafuga', 'description' => 'hogehoge']
         );
-
         // failure
         $this->postMethod(
             '/api/v1/profiles?token=' . $token,

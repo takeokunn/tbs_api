@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 
 class ProfileTableSeeder extends AppSeeder
 {
-
     private $profile;
 
     public function __construct(

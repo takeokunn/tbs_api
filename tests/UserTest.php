@@ -24,7 +24,6 @@ class UserTest extends TestCase
             'registered userdata successfully',
             ['name' => 'fugafuga', 'email' => 'aaa@gmail.com', 'password' => '1234']
         );
-
         // failure
         $this->postMethod(
             '/api/v1/auth/register',
