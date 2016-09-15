@@ -26,6 +26,7 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::post('auth/update', 'V1\UserController@update');
         Route::get ('auth/logout', 'V1\UserController@logout');
 
+        Route::get ('profiles', 'V1\ProfileController@index');
         Route::post('profiles', 'V1\ProfileController@update');
         Route::get ('profiles/{userId}', 'V1\ProfileController@show');
 

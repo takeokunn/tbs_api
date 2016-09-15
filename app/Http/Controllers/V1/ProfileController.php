@@ -30,6 +30,17 @@ class ProfileController extends Controller
     }
 
     /**
+     * get profiles
+     * @return json
+     */
+    public function index()
+    {
+        $profiles = $this->profile->getAll();
+
+        return response()->json($this->successGetProfiles($profiles), 200);
+    }
+
+    /**
      * show profile
      * @param  int $userId
      * @return json

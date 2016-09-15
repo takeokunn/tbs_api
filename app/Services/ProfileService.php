@@ -44,6 +44,15 @@ class ProfileService
     }
 
     /**
+     * get profile data
+     * @return object
+     */
+    public function getAll()
+    {
+        return Profile::with('user')->orderBy('updated_at', 'desc')->get();
+    }
+
+    /**
      * get profile by user_id
      * @param  int    $userId_
      * @return Object

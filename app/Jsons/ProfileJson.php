@@ -7,10 +7,25 @@ namespace App\Jsons;
 trait ProfileJson
 {
     /**
+     * json format if success get profiles
+     * @param  Object $data_
+     * @return array
+     */
+    private function successGetProfiles($data_) : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'data'    => $data_,
+            'message' => 'success get profiles'
+        ];
+    }
+
+    /**
      * json format if failure show profile
      * @return array
      */
-    private function failureShowProfile() : array
+    private function failureShowedProfile() : array
     {
         return [
             'status'  => 'failure',
