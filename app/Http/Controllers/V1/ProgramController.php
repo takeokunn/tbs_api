@@ -39,4 +39,14 @@ class ProgramController extends Controller
 
         return response()->json($this->successGotProgram($programs), 200);
     }
+
+    /**
+     * create program
+     * @param  Request $request
+     * @return json
+     */
+    public function create(Request $request)
+    {
+        $data = $request->only('identify', 'password');
+    }
 }
