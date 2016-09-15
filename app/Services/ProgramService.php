@@ -14,7 +14,7 @@ class ProgramService
      */
     public function getAll()
     {
-        return Program::with('program_infos')->orderBy('updated_at', 'desc')->get();
+        return Program::orderBy('updated_at', 'desc')->get();
     }
 
     /**
