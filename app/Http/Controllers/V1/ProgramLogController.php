@@ -63,6 +63,9 @@ class ProgramLogController extends Controller
         if(empty($data['price']) || !is_numeric($data['price'])) {
             return response()->json($this->invalidArgument(), 400);
         }
+        if(!$this->program->isExist(intval($programId))) {
+            return response()->json($this->notExistedProgram(), 400);
+        }
         $this->program_log->create(intval($programId), (float)$data['price']);
         $this->program->updatePrice(intval($programId), (float)$data['price']);
 

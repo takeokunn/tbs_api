@@ -70,4 +70,14 @@ class ProgramService
 
         return $program;
     }
+
+    /**
+     * whether program is existed
+     * @param  int     $programId_
+     * @return boolean
+     */
+    public function isExist(int $programId_) : bool
+    {
+        return (bool)Program::where('id', '=', $programId_)->count();
+    }
 }

@@ -70,4 +70,17 @@ trait ProgramJson
             'message' => 'success update program'
         ];
     }
+
+    /**
+     * json format if program not exist
+     * @return array
+     */
+    public function notExistedProgram() :array
+    {
+        return [
+            'status' => 'failure',
+            'code' => 400,
+            'message' => 'program not exist'
+        ];
+    }
 }
