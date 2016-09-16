@@ -16,7 +16,7 @@ class ProgramLogService
      */
     public function getByProgramId(int $programId_)
     {
-        return ProgramLog::where('id', '=', $programId_)->get();
+        return ProgramLog::where('id', '=', $programId_)->orderBy('updated_at', 'desc')->get();
     }
 
     /**
