@@ -22,17 +22,21 @@ Route::group(['prefix' => '/api/v1'], function ()
 
     Route::group(['middleware' => 'jwt.auth.user'], function ()
     {
+        // users
         Route::get ('auth/self'  , 'V1\UserController@self');
         Route::post('auth/update', 'V1\UserController@update');
         Route::get ('auth/logout', 'V1\UserController@logout');
 
+        // profiles
         Route::get ('profiles', 'V1\ProfileController@index');
         Route::post('profiles', 'V1\ProfileController@update');
         Route::get ('profiles/{userId}', 'V1\ProfileController@show');
 
+        // programs
         Route::get ('programs', 'V1\ProgramController@index');
         Route::post('programs', 'V1\ProgramController@create');
         Route::get ('programs/{programId}', 'V1\ProgramController@show');
+        Route::post('programs/{programId}', 'V1\ProgramController@update');
 
         // for develop
         Route::get('jwt_test', function () {});

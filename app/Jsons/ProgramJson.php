@@ -61,4 +61,13 @@ trait ProgramJson
             'message' => 'success show program'
         ];
     }
+
+    private function successUpdatedProgram() : array
+    {
+        return [
+            'status' => 'success',
+            'code' => 200,
+            'message' => 'success update program'
+        ];
+    }
 }

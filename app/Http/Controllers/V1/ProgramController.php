@@ -74,4 +74,25 @@ class ProgramController extends Controller
 
         return response()->json($this->successShowedProgram($program), 200);
     }
+
+    /**
+     * update program
+     * @param  int $programId
+     * @return json
+     */
+    public function update(Request $request, $programId)
+    {
+        $data = $request->only('name');
+
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+        if(empty($data['name'])) {
+            return response()->json($this->invalidArgument(), 400);
+        }
+        $this->program->update(intval($programId), $data['name']);
+
+        return response()->json($this->successUpdatedProgram(), 200);
+
+    }
 }

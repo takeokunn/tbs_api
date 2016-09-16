@@ -40,4 +40,19 @@ class ProgramService
 
         return $program;
     }
+
+    /**
+     * update program
+     * @param  int    $programId_
+     * @param  string $name_
+     * @return Object
+     */
+    public function update(int $programId_, string $name_)
+    {
+        $program = Program::where('id', '=', $programId_)->first();
+        $program->name = $name_;
+        $program->save();
+
+        return $program;
+    }
 }

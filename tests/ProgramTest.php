@@ -57,5 +57,26 @@ class ProgramTest extends TestCase
             '/api/v1/programs/hogehoge?token=' . $token,
             'invalid parameter'
         );
+
+        /**
+         * update program
+         */
+        // success
+        $this->postMethod(
+            '/api/v1/programs/1?token=' . $token,
+            'success update program',
+            ['name' => 'fugafuga']
+        );
+        // failure
+        $this->postMethod(
+            '/api/v1/programs?token=' . $token,
+            'invalid argument',
+            ['name' => '']
+        );
+        $this->postMethod(
+            '/api/v1/programs/hogehoge?token=' . $token,
+            'invalid parameter',
+            ['name' => 'fugafuga']
+        );
     }
 }
