@@ -28,4 +28,22 @@ class StockService
         return Stock::with('program')->where('user_id', '=', $userId_)->orderBy('updated_at', 'desc')->get();
     }
 
+    /**
+     * for develop
+     * create stock data
+     * @param  int    $userId_
+     * @param  int    $programId_
+     * @param  int    $number_
+     * @return Object
+     */
+    public function create(int $userId_, int $programId_, int $number_)
+    {
+        $stock = new Stock;
+        $stock->user_id      = $userId_;
+        $stock->program_id   = $programId_;
+        $stock->stock_number = $number_;
+        $stock->save();
+
+        return $stock;
+    }
 }
