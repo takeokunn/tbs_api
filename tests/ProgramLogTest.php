@@ -20,12 +20,12 @@ class ProgramLogTest extends TestCase
          */
         // success
         $this->getMethod(
-            '/api/v1/programs/1/info?token=' . $token,
+            '/api/v1/programs/1/logs?token=' . $token,
             'success get program logs'
         );
         // failure
         $this->getMethod(
-            '/api/v1/programs/hogehoge/info?token=' . $token,
+            '/api/v1/programs/hogehoge/logs?token=' . $token,
             'invalid parameter'
         );
 
@@ -34,23 +34,23 @@ class ProgramLogTest extends TestCase
          */
         // success
         $this->postMethod(
-            '/api/v1/programs/1/info?token=' . $token,
+            '/api/v1/programs/1/logs?token=' . $token,
             'success create program log',
             ['price' => 111]
         );
         // failure
         $this->postMethod(
-            '/api/v1/programs/11111/info?token=' . $token,
+            '/api/v1/programs/11111/logs?token=' . $token,
             'program not exist',
             ['price' => 111]
         );
         $this->postMethod(
-            '/api/v1/programs/hogehoge/info?token=' . $token,
+            '/api/v1/programs/hogehoge/logs?token=' . $token,
             'invalid parameter',
             ['price' => 111]
         );
         $this->postMethod(
-            '/api/v1/programs/1/info?token=' . $token,
+            '/api/v1/programs/1/logs?token=' . $token,
             'invalid argument',
             ['price' => '']
         );
