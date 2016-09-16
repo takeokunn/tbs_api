@@ -40,8 +40,6 @@ class StockController extends Controller
      */
     public function index($programId)
     {
-        $me = $this->user->getLoginedUser();
-
         if(!is_numeric($programId)) {
             return response()->json($this->invalidParameter(), 400);
         }
