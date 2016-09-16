@@ -16,7 +16,7 @@ class CreateProfilesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('profile_img_url')->nullable();
-            $table->integer('tbs_point')->default(0);
+            $table->float('tbs_point')->default(100);
             $table->timestamps();
         });
     }

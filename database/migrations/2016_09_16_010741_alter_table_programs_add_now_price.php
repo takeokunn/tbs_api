@@ -13,7 +13,7 @@ class AlterTableProgramsAddNowPrice extends Migration
     public function up()
     {
         Schema::table('programs', function ($table) {
-            $table->integer('now_price')->default(100)->after('name');
+            $table->float('now_price')->default(100)->after('name');
         });
     }
 
