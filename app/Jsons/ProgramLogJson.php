@@ -12,7 +12,7 @@ trait ProgramLogJson
             'status'  => 'success',
             'code'    => 200,
             'data'    => $data_,
-            'message' => 'success get programs'
+            'message' => 'success get program logs'
         ];
     }
 
@@ -25,7 +25,7 @@ trait ProgramLogJson
         return [
             'status'  => 'success',
             'code'    => 201,
-            'message' => 'success create program logs'
+            'message' => 'success create program log'
         ];
     }
 }
