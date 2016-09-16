@@ -90,7 +90,7 @@ class ProgramController extends Controller
         if(empty($data['name'])) {
             return response()->json($this->invalidArgument(), 400);
         }
-        $this->program->update(intval($programId), $data['name']);
+        $this->program->updateName(intval($programId), $data['name']);
 
         return response()->json($this->successUpdatedProgram(), 200);
 

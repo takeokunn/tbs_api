@@ -42,15 +42,30 @@ class ProgramService
     }
 
     /**
-     * update program
+     * update program name
      * @param  int    $programId_
      * @param  string $name_
      * @return Object
      */
-    public function update(int $programId_, string $name_)
+    public function updateName(int $programId_, string $name_)
     {
         $program = Program::where('id', '=', $programId_)->first();
         $program->name = $name_;
+        $program->save();
+
+        return $program;
+    }
+
+    /**
+     * update program price
+     * @param  int   $programId_
+     * @param  float $price_
+     * @return Object
+     */
+    public function updatePrice(int $programId_, float $price_)
+    {
+        $program = Program::where('id', '=', $programId_)->first();
+        $program->now_price = $price_;
         $program->save();
 
         return $program;
