@@ -69,9 +69,14 @@ class ProgramTest extends TestCase
         );
         // failure
         $this->postMethod(
-            '/api/v1/programs?token=' . $token,
+            '/api/v1/programs/1?token=' . $token,
             'invalid argument',
             ['name' => '']
+        );
+        $this->postMethod(
+            '/api/v1/programs/11111?token=' . $token,
+            'program not exist',
+            ['name' => 'fugafuga']
         );
         $this->postMethod(
             '/api/v1/programs/hogehoge?token=' . $token,
