@@ -32,5 +32,14 @@ class StockTest extends TestCase
             '/api/v1/programs/111111/stocks?token=' . $token,
             'program not exist'
         );
+
+        /**
+         * get stocks by user_id
+         */
+        // success
+        $this->getMethod(
+            '/api/v1/auth/stocks?token=' . $token,
+            'success get stocks by user_id'
+        );
     }
 }
