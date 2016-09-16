@@ -8,6 +8,17 @@ use App\Models\ProgramLog;
 
 class ProgramLogService
 {
+
+    /**
+     * get logs by program_id
+     * @param  int    $programId_
+     * @return Object
+     */
+    public function getByProgramId(int $programId_)
+    {
+        return ProgramLog::where('id', '=', $programId_)->get();
+    }
+
     /**
      * create program log
      * @param  int    $programId_

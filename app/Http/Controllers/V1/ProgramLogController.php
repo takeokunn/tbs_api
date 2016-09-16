@@ -34,6 +34,21 @@ class ProgramLogController extends Controller
     }
 
     /**
+     * get program logs
+     * @param  int $programId
+     * @return json
+     */
+    public function index($programId)
+    {
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+        $logs = $this->program_log->getByProgramId(intval($programId));
+
+        return response()->json($this->successGotProgramLogs($logs), 200);
+    }
+
+    /**
      * create program logs
      * @param  int $programId_
      * @return json

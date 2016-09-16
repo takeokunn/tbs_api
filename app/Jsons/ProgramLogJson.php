@@ -6,6 +6,16 @@ namespace App\Jsons;
 
 trait ProgramLogJson
 {
+    public function successGotProgramLogs($data_) : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'data'    => $data_,
+            'message' => 'success get programs'
+        ];
+    }
+
     /**
      * create program log
      * @return array

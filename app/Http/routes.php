@@ -39,6 +39,7 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::post('programs/{programId}', 'V1\ProgramController@update');
 
         // program logs
+        Route::get ('programs/{programId}/info', 'V1\ProgramLogController@index');
         Route::post('programs/{programId}/info', 'V1\ProgramLogController@create');
 
         // for develop
