@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 
 class ProgramLogController extends Controller
 {
-    use \App\Jsons\ProgramLogJson, \App\Jsons\CommonJson;
+    use \App\Jsons\ProgramJson, \App\Jsons\ProgramLogJson, \App\Jsons\CommonJson;
 
     private $user;
     private $program;

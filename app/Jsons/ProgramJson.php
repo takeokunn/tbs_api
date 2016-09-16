@@ -62,6 +62,10 @@ trait ProgramJson
         ];
     }
 
+    /**
+     * json format if success update program
+     * @return array
+     */
     private function successUpdatedProgram() : array
     {
         return [
