@@ -43,7 +43,7 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::post('programs/{programId}/logs', 'V1\ProgramLogController@create');
 
         // stocks
-        Route::get ('programs/{programId}/stocks', 'V1\ProgramLogController@index');
+        Route::get ('programs/{programId}/stocks', 'V1\StockController@index');
 
         // for develop
         Route::get('jwt_test', function () {});
