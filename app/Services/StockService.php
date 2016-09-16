@@ -17,4 +17,15 @@ class StockService
     {
         return Stock::with('user')->where('program_id', '=', $programId_)->orderBy('updated_at', 'desc')->get();
     }
+
+    /**
+     * get stocks by userId
+     * @param  int    $userId_
+     * @return Object
+     */
+    public function getByUserId(int $userId_)
+    {
+        return Stock::with('program')->where('user_id', '=', $userId_)->orderBy('updated_at', 'desc')->get();
+    }
+
 }

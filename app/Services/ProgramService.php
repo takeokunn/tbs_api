@@ -28,6 +28,16 @@ class ProgramService
     }
 
     /**
+     * get program.now_price by programId
+     * @param  int    $programId_
+     * @return float
+     */
+    public function getNowPriceByProgramId(int $programId_) : float
+    {
+        return Program::where('id', '=', $programId_)->first()->now_price;
+    }
+
+    /**
      * create program
      * @param  string $name_
      * @return Object

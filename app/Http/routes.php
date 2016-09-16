@@ -26,6 +26,7 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::get ('auth/self'  , 'V1\UserController@self');
         Route::post('auth/update', 'V1\UserController@update');
         Route::get ('auth/logout', 'V1\UserController@logout');
+        Route::get ('auth/stocks', 'V1\StockController@myStocks');
 
         // profiles
         Route::get ('profiles', 'V1\ProfileController@index');

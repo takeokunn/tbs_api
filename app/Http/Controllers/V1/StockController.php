@@ -50,4 +50,17 @@ class StockController extends Controller
 
         return response()->json($this->successGotStocks($stocks), 200);
     }
+
+    /**
+     * get user stocks
+     * @return json
+     */
+    public function myStocks()
+    {
+        $me = $this->user->getLoginedUser();
+
+        $stocks = $this->stock->getByUserId($me->id);
+
+        return response()->json($this->successGotStocksByUserId($stocks), 200);
+    }
 }
