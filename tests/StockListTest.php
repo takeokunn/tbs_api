@@ -16,7 +16,7 @@ class StockListTest extends TestCase
         $token = $this->getToken();
 
         /**
-         * get stocklist
+         * get stock buy list
          */
         // success
         $this->getMethod(
@@ -31,6 +31,58 @@ class StockListTest extends TestCase
         $this->getMethod(
             '/api/v1/programs/11111/buylist?token=' . $token,
             'program not exist'
+        );
+
+        /**
+         * create stock buy list
+         */
+        // success
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'success create stock buy list',
+            ['number' => 1, 'price' => 1, 'type' => 'limit']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'success create stock buy list',
+            ['number' => 1, 'price' => 1, 'type' => 'market']
+        );
+
+        // failure
+        $this->postMethod(
+            '/api/v1/programs/hogehoge/buylist?token=' . $token,
+            'invalid parameter',
+            ['number' => 1, 'price' => 1, 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'invalid argument',
+            ['number' => '', 'price' => 1, 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => '', 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => 1, 'type' => '']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'invalid argument',
+            ['number' => 'hoge', 'price' => 1, 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => 'hoge', 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/buylist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => 1, 'type' => 'hogehoge']
         );
     }
 }
