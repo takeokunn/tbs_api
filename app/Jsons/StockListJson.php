@@ -13,7 +13,7 @@ trait StockListJson
     private function successCreateStockBuyList() : array
     {
         return [
-            'status'  => 'created',
+            'status'  => 'create',
             'code'    => 201,
             'message' => 'success create stock buy list'
         ];
@@ -24,10 +24,10 @@ trait StockListJson
      * @param  Object $data_
      * @return array
      */
-    private function successGetStockBuyList($data_) : array
+    private function successGotStockBuyList($data_) : array
     {
         return [
-            'status'  => 'created',
+            'status'  => 'success',
             'code'    => 200,
             'data'    => $data_,
             'message' => 'success get stock buy list'

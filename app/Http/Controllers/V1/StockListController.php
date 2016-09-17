@@ -11,9 +11,10 @@ use App\Http\Controllers\Controller;
 
 class StockListController extends Controller
 {
-    use \App\Jsons\StockListJson, \App\Jsons\CommonJson;
+    use \App\Jsons\StockListJson, \App\Jsons\ProgramJson, \App\Jsons\CommonJson;
 
     private $user;
+    private $program;
     private $stock_list;
 
     /**
@@ -23,9 +24,11 @@ class StockListController extends Controller
      */
     public function __construct(
         \App\Services\UserService $user,
+        \App\Services\ProgramService $program,
         \App\Services\StockListService $stock_list
     ) {
         $this->user       = $user;
+        $this->program    = $program;
         $this->stock_list = $stock_list;
     }
 
@@ -39,10 +42,13 @@ class StockListController extends Controller
         if(!is_numeric($programId)) {
             return response()->json($this->invalidParameter(), 400);
         }
+        if(!$this->program->isExist(intval($programId))) {
+            return response()->json($this->notExistedProgram(), 400);
+        }
 
-        $stock_lists = $this->stock_list->getAll(intval($programId));
+        $stock_lists = $this->stock_list->getBuyListAll(intval($programId));
 
-        return response()->json($this->successGetStockBuyList($stock_lists), 200);
+        return response()->json($this->successGotStockBuyList($stock_lists), 200);
     }
 
     /**
