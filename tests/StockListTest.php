@@ -102,5 +102,57 @@ class StockListTest extends TestCase
             '/api/v1/programs/11111/salelist?token=' . $token,
             'program not exist'
         );
+
+        /**
+         * create stock sale list
+         */
+        // success
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'success create stock sale list',
+            ['number' => 1, 'price' => 1, 'type' => 'limit']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'success create stock sale list',
+            ['number' => 1, 'price' => 1, 'type' => 'market']
+        );
+
+        // failure
+        $this->postMethod(
+            '/api/v1/programs/hogehoge/salelist?token=' . $token,
+            'invalid parameter',
+            ['number' => 1, 'price' => 1, 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'invalid argument',
+            ['number' => '', 'price' => 1, 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => '', 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => 1, 'type' => '']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'invalid argument',
+            ['number' => 'hoge', 'price' => 1, 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => 'hoge', 'type' => 'market']
+        );
+        $this->postMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'invalid argument',
+            ['number' => 1, 'price' => 1, 'type' => 'hogehoge']
+        );
     }
 }
