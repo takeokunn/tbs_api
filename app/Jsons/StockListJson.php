@@ -10,7 +10,7 @@ trait StockListJson
      * json format if create stock buy list
      * @return array
      */
-    private function successCreateStockBuyList() : array
+    private function successCreatedStockBuyList() : array
     {
         return [
             'status'  => 'create',

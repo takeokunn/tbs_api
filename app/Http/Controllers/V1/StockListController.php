@@ -78,6 +78,6 @@ class StockListController extends Controller
         }
         $this->stock_list->createBuyList($me->id, intval($programId), intval($data['number']), intval($data['price']), $data['type']);
 
-        return response()->json($this->successCreateStockBuyList(), 200);
+        return response()->json($this->successCreatedStockBuyList(), 200);
     }
 }
