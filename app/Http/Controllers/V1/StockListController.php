@@ -34,7 +34,7 @@ class StockListController extends Controller
      * @param  Request $request
      * @return json
      */
-    public function buylistCreate(Request $request, $programId)
+    public function createBuylist(Request $request, $programId)
     {
         $me   = $this->user->getLoginedUser();
         $data = $request->only('number', 'price', 'type');
