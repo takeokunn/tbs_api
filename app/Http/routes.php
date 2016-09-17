@@ -15,14 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/get', function() {
-    return "get";
-});
-
-Route::post('/post', function() {
-    return "good";
-});
-
 Route::group(['prefix' => '/api/v1'], function ()
 {
     Route::post('user/register', 'V1\UserController@register');
@@ -59,6 +51,8 @@ Route::group(['prefix' => '/api/v1'], function ()
         // stock (buy|sell) list
         Route::get ('programs/{programId}/buylist', 'V1\StockListController@getBuylist');
         Route::post('programs/{programId}/buylist', 'V1\StockListController@createBuylist');
+
+        Route::get ('programs/{programId}/buylist', 'V1\StockListController@getBuylist');
 
         // for develop
         Route::get('jwt_test', function () {});
