@@ -20,28 +20,28 @@ class UserTest extends TestCase
          */
         // success
         $this->postMethod(
-            '/api/v1/user/register',
+            '/api/v1/auth/register',
             'registered userdata successfully',
             ['name' => 'fugafuga', 'email' => 'aaa@gmail.com', 'password' => '1234']
         );
         // failure
         $this->postMethod(
-            '/api/v1/user/register',
+            '/api/v1/auth/register',
             'this email has already existed',
             ['name' => 'fugafuga', 'email' => 'aaa@gmail.com', 'password' => '1234']
         );
         $this->postMethod(
-            '/api/v1/user/register',
+            '/api/v1/auth/register',
             'invalid argument',
             ['name' => 'fugafuga', 'email' => 'ccc@gmail.com', 'password' => '']
         );
         $this->postMethod(
-            '/api/v1/user/register',
+            '/api/v1/auth/register',
             'invalid argument',
             ['name' => 'fugafuga', 'email' => '', 'password' => '1234']
         );
         $this->postMethod(
-            '/api/v1/user/register',
+            '/api/v1/auth/register',
             'invalid argument',
             ['name' => 'foobar', 'email' => 'bbb@gmail.com', 'password' => '']
         );
@@ -51,33 +51,33 @@ class UserTest extends TestCase
          */
         // success
         $this->postMethod(
-            '/api/v1/user/login',
+            '/api/v1/auth/login',
             'success login',
             ['identify' => 'test1@gmail.com', 'password' => '1234']
         );
         $this->postMethod(
-            '/api/v1/user/login',
+            '/api/v1/auth/login',
             'success login',
             ['identify' => 'test1', 'password' => '1234']
         );
         // failure
         $this->postMethod(
-            '/api/v1/user/login',
+            '/api/v1/auth/login',
             'invalid argument',
             ['identify' => '', 'password' => '1234']
         );
         $this->postMethod(
-            '/api/v1/user/login',
+            '/api/v1/auth/login',
             'invalid argument',
             ['identify' => 'test1@gmail.com', 'password' => '']
         );
         $this->postMethod(
-            '/api/v1/user/login',
+            '/api/v1/auth/login',
             'failure login',
             ['identify' => 'hogehoge@yahoo.co.jp', 'password' => '1234']
         );
         $this->postMethod(
-            '/api/v1/user/login',
+            '/api/v1/auth/login',
             'failure login',
             ['identify' => 'test1@gmail.com', 'password' => 'hogehoge']
         );
@@ -87,7 +87,7 @@ class UserTest extends TestCase
          */
         // success
         $this->getMethod(
-            '/api/v1/user/self?token=' . $token,
+            '/api/v1/auth/self?token=' . $token,
             'success get me'
         );
 
@@ -117,7 +117,7 @@ class UserTest extends TestCase
          */
         // success
         $this->getMethod(
-            '/api/v1/user/logout?token=' . $token,
+            '/api/v1/auth/logout?token=' . $token,
             'success logouted'
         );
     }

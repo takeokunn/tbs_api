@@ -17,17 +17,19 @@ Route::get('/', function () {
 
 Route::group(['prefix' => '/api/v1'], function ()
 {
-    Route::post('user/register', 'V1\UserController@register');
-    Route::post('user/login'   , 'V1\UserController@login');
-
+    // auth
+    Route::post('auth/register', 'V1\UserController@register');
+    Route::post('auth/login'   , 'V1\UserController@login');
     Route::get('auth/twitter', 'V1\OAuthController@loginWithTwitter');
 
     Route::group(['middleware' => 'jwt.auth.user'], function ()
     {
-        // users
-        Route::get ('user/self'  , 'V1\UserController@self');
+        // auth
+        Route::get ('auth/self'  , 'V1\UserController@self');
+        Route::get ('auth/logout', 'V1\UserController@logout');
+
+        // user
         Route::post('user/update', 'V1\UserController@update');
-        Route::get ('user/logout', 'V1\UserController@logout');
         Route::get ('user/stocks', 'V1\StockController@myStocks');
         Route::post('user/points', 'V1\ProfileController@buyPoint');
 
