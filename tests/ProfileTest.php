@@ -57,9 +57,31 @@ class ProfileTest extends TestCase
         /**
          * get profiles
          */
+        // success
         $this->getMethod(
             '/api/v1/profiles?token=' . $token,
             'success get profiles'
+        );
+
+        /**
+         * buy tbs_point
+         */
+        // success
+        $this->postMethod(
+            '/api/v1/user/points?token=' . $token,
+            'success buy tbs point',
+            ['point' => 11]
+        );
+        // failure
+        $this->postMethod(
+            '/api/v1/user/points?token=' . $token,
+            'invalid argument',
+            ['point' => '']
+        );
+        $this->postMethod(
+            '/api/v1/user/points?token=' . $token,
+            'invalid argument',
+            ['point' => 'hogehoge']
         );
     }
 }
