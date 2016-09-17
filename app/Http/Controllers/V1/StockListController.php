@@ -51,7 +51,7 @@ class StockListController extends Controller
             || !is_numeric($data['number'])
             || !is_numeric($data['price'])
             || !array_search($data['type'], $type_arr)
-        ){
+        ) {
             return response()->json($this->invalidArgument(), 400);
         }
         $this->stock_list->createBuyList($me->id, intval($programId), intval($data['number']), intval($data['price']), $data['type']);

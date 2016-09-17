@@ -17,7 +17,7 @@ trait ProgramLogJson
     }
 
     /**
-     * create program log
+     * json format if create program log
      * @return array
      */
     private function successCreatedProgramLog() : array

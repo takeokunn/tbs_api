@@ -67,6 +67,13 @@ class UserService
         return User::with('profile')->where('id', '=', $user_id)->first();
     }
 
+    /**
+     * update userdata
+     * @param  int    $userId_
+     * @param  string $name_
+     * @param  string $email_
+     * @return Object
+     */
     public function update(int $userId_, string $name_, string $email_)
     {
         $user = User::where('id', '=', $userId_)->first();
