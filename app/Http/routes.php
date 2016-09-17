@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/get', function() {
+    return "get";
+});
+
+Route::post('/post', function() {
+    return "good";
+});
+
 Route::group(['prefix' => '/api/v1'], function ()
 {
     Route::post('user/register', 'V1\UserController@register');
