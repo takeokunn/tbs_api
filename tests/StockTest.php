@@ -38,7 +38,7 @@ class StockTest extends TestCase
          */
         // success
         $this->getMethod(
-            '/api/v1/auth/stocks?token=' . $token,
+            '/api/v1/user/stocks?token=' . $token,
             'success get stocks by user_id'
         );
     }

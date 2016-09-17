@@ -30,7 +30,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         Artisan::call('db:seed');
 
-        return $this->call('POST', '/api/v1/auth/login', ['identify' => 'test1@gmail.com', 'password' => '1234'])->getData()->token;
+        return $this->call('POST', '/api/v1/user/login', ['identify' => 'test1@gmail.com', 'password' => '1234'])->getData()->token;
     }
 
     /**
