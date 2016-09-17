@@ -80,4 +80,24 @@ class StockListController extends Controller
 
         return response()->json($this->successCreatedStockBuyList(), 200);
     }
+
+    /**
+     * get stock sale list
+     * @param  Request $request
+     * @param  int  $programId
+     * @return json
+     */
+    public function getSalelist(Request $request, $programId)
+    {
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+        if(!$this->program->isExist(intval($programId))) {
+            return response()->json($this->notExistedProgram(), 400);
+        }
+
+        $stock_lists = $this->stock_list->getSaleListAll(intval($programId));
+
+        return response()->json($this->successGotStockSaleList($stock_lists), 200);
+    }
 }

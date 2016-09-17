@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Services;
 
-use App\Models\ProgramBuyList;
+use App\Models\{ProgramBuyList, ProgramSaleList};
 
 class StockListService
 {
@@ -38,5 +38,15 @@ class StockListService
     public function getBuyListAll(int $programId_)
     {
         return ProgramBuyList::where('program_id', '=', $programId_)->get();
+    }
+
+    /**
+     * get stock sale list
+     * @param  int    $programId_
+     * @return Object
+     */
+    public function getSaleListAll(int $programId_)
+    {
+        return ProgramSaleList::where('program_id', '=', $programId_)->get();
     }
 }
