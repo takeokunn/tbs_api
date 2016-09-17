@@ -53,7 +53,7 @@ class UserService
             $token = JWTAuth::attempt(['name' => $identify_, 'password' => $password_]);
         }
 
-        return $token? $token : null;
+        return $token;
     }
 
     /**
