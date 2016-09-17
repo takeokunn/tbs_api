@@ -13,7 +13,7 @@ class ProfileService
      * @param  int    $userId_
      * @param  string $username_
      * @param  string $description_
-     * @return [type]
+     * @return Object
      */
     public function create(int $userId_, string $username_, string $description_)
     {
@@ -44,8 +44,36 @@ class ProfileService
     }
 
     /**
+     * deal tbs point (add|sub)
+     * @param  int    $userId_
+     * @param  string $type_ (buy | sell)
+     * @param  int    $changePointNumber_
+     * @return Object
+     */
+    public function dealStocks(int $userId_, string $type_, float $changePointNumber_)
+    {
+        $profile = $this->getByUserId($userId_);
+
+        // buy stock
+        if($type_ === 'buy') {
+            $profile->tbs_point -= $changePointNumber_;
+            $profile->save();
+
+            return $profile;
+        }
+
+        // sell stock
+        if($type_ === 'sell') {
+            $profile->tbs_point += $changePointNumber_;
+            $profile->save();
+
+            return $profile;
+        }
+    }
+
+    /**
      * get profile data
-     * @return object
+     * @return Object
      */
     public function getAll()
     {
@@ -60,5 +88,15 @@ class ProfileService
     public function getByUserId(int $userId_)
     {
         return Profile::with('user')->where('user_id', '=', $userId_)->first();
+    }
+
+    /**
+     * get tbs_point by user_id
+     * @param  int    $userId_
+     * @return float
+     */
+    public function getTbsPointByUserId(int $userId_) : float
+    {
+        return Profile::where('user_id', '=', $userId_)->first()->tbs_point;
     }
 }

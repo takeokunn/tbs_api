@@ -48,4 +48,43 @@ trait StockJson
             'message' => 'success get stocks by user_id'
         ];
     }
+
+    /**
+     * json format if cannot sell stocks
+     * @return array
+     */
+    private function cannotSellStocks() : array
+    {
+        return [
+            'status'  => 'failure',
+            'code'    => 400,
+            'message' => 'cannot sell stocks'
+        ];
+    }
+
+    /**
+     * json format if cannot buy stocks
+     * @return array
+     */
+    private function cannotBuyStocks() : array
+    {
+        return [
+            'status'  => 'failure',
+            'code'    => 400,
+            'message' => 'cannot buy stocks'
+        ];
+    }
+
+    /**
+     * json format if success deal stocks
+     * @return array
+     */
+    private function successDealtStocks() : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'message' => 'success deal stocks'
+        ];
+    }
 }
