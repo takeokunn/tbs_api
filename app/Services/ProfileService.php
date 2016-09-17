@@ -35,7 +35,7 @@ class ProfileService
      */
     public function update(int $userId_, string $username_, string $description_)
     {
-        $profile = Profile::where('user_id', '=', $userId_)->first();
+        $profile = $this->getByUserId($userId_);
         $profile->username    = $username_;
         $profile->description = $description_;
         $profile->save();
@@ -69,6 +69,21 @@ class ProfileService
 
             return $profile;
         }
+    }
+
+    /**
+     * add tbs_point
+     * @param int $userId_
+     * @param int $point_
+     * @return Object
+     */
+    public function addTbsPoint(int $userId_, int $point_)
+    {
+        $profile = $this->getByUserId($userId_);
+        $profile->tbs_point += $point_;
+        $profile->save();
+
+        return $profile;
     }
 
     /**

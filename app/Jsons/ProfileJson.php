@@ -61,4 +61,17 @@ trait ProfileJson
             'message' => 'success update profile'
         ];
     }
+
+    /**
+     * json format if success add tbs point
+     * @return array
+     */
+    private function successBuyTbsPoint() : array
+    {
+        return [
+            'status' => 'success',
+            'code' => 200,
+            'message' => 'success buy tbs point'
+        ];
+    }
 }

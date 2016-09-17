@@ -75,4 +75,17 @@ class ProfileController extends Controller
 
         return response()->json($this->successUpdatedProfile(), 200);
     }
+
+    public function buyPoint(Request $request)
+    {
+        $data = $request->only('point');
+        $me   = $this->user->getLoginedUser();
+
+        if(empty($data['point']) || !is_numeric($data['point'])) {
+            return response()->json($this->invalidArgument(), 400);
+        }
+        $this->profile->addTbsPoint($me->id, intval($data['point']));
+
+        return response()->json($this->successBuyTbsPoint(), 200);
+    }
 }
