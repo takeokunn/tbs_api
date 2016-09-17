@@ -19,8 +19,8 @@ return [
 	'consumers' => [
 
 		'Twitter' => [
-			'client_id'     => env('TWITTER_CLIENT_ID'),
-			'client_secret' => env('TWITTER_CLIENT_SECRET')
+			'client_id'     => env('CONSUMER_KEY'),
+			'client_secret' => env('CONSUMER_SECRET')
 		],
 
 	]

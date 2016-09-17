@@ -57,7 +57,6 @@ class OAuthController extends Controller
         }
         else {
             $reqToken = $tw->requestRequestToken();
-            var_dump($reqToken);
             $url = $tw->getAuthorizationUri(['oauth_token' => $reqToken->getRequestToken()]);
 
             return redirect((string)$url);
