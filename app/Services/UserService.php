@@ -85,6 +85,31 @@ class UserService
     }
 
     /**
+     * twitter login
+     * @param  int    $name
+     * @param  int    $twitterId_
+     * @param  string $profile_img_url_
+     * @param  string $access_token_
+     * @param  string $access_token_secret
+     * @return Object
+     */
+    public function twitterLogin(string $name, int $twitterId_, string $profile_img_url_, string $access_token_, string $access_token_secret_)
+    {
+        $user = User::firstOrNew(['twitter_id' => $twitterId_]);
+        $user->name = empty($user->name)? $name : $user->name;
+        $user->twitter_id = $twitterId_;
+        $user->save();
+
+        $profile = Profile::firstOrNew(['user_id' => $user->id]);
+        $profile->profile_img_url = $profile_img_url_;
+        $profile->access_token = $access_token_;
+        $profile->access_token_secret = $access_token_secret_;
+        $profile->save();
+
+        return $user;
+    }
+
+    /**
      * logout(jwt-auth)
      * @return
      */
@@ -94,6 +119,16 @@ class UserService
         if ($token) {
             JWTAuth::setToken($token)->invalidate();
         }
+    }
+
+    /**
+     * publish token
+     * @param  Object $user
+     * @return string
+     */
+    public function publishToken($user) : string
+    {
+        return JWTAuth::fromUser($user);
     }
 
     /**

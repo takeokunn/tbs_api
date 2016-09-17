@@ -145,10 +145,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        /*
-         * JWTAuth
-         */
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
+        // JWTAuth
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
+        // oauth-5-laravel
+        Artdarek\OAuth\OAuthServiceProvider::class
 
     ],
 
@@ -198,11 +199,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-        /**
-         * jwt auth
-         */
+        // jwt
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class
+        'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class,
+        // OAuth
+        'OAuth'     => Artdarek\OAuth\Facade\OAuth::class
     ],
 
 ];

@@ -15,8 +15,9 @@ class User extends Model implements AuthenticatableContract,
 {
     use Authenticatable, Authorizable;
 
-    protected $table = 'users';
-    protected $hidden = ['password', 'twitter_id', 'facebook_id'];
+    protected $table   = 'users';
+    protected $guarded = ['id'];
+    protected $hidden  = ['password', 'twitter_id', 'facebook_id'];
 
     public function profile()
     {

@@ -20,6 +20,8 @@ Route::group(['prefix' => '/api/v1'], function ()
     Route::post('user/register', 'V1\UserController@register');
     Route::post('user/login'   , 'V1\UserController@login');
 
+    Route::get('auth/twitter', 'V1\OAuthController@loginWithTwitter');
+
     Route::group(['middleware' => 'jwt.auth.user'], function ()
     {
         // users
