@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "tymon/jwt-auth": "0.5.*",
         "oriceon/oauth-5-laravel":"dev-master",
-        "doctrine/dbal": "~2.3"
+        "doctrine/dbal": "~2.3",
+        "thujohn/twitter": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

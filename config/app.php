@@ -149,7 +149,10 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
         // oauth-5-laravel
-        Artdarek\OAuth\OAuthServiceProvider::class
+        Artdarek\OAuth\OAuthServiceProvider::class,
+
+        // Twitter
+        Thujohn\Twitter\TwitterServiceProvider::class
 
     ],
 
@@ -203,7 +206,9 @@ return [
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class,
         // OAuth
-        'OAuth'     => Artdarek\OAuth\Facade\OAuth::class
+        'OAuth'     => Artdarek\OAuth\Facade\OAuth::class,
+        // Twitter
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class
     ],
 
 ];

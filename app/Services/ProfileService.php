@@ -114,4 +114,14 @@ class ProfileService
     {
         return Profile::where('user_id', '=', $userId_)->first()->tbs_point;
     }
+
+    public function getAccessTokenByUserId(int $userId_) : array
+    {
+        $profile = $this->getByUserId($userId_);
+
+        return [
+            'token' => $profile->access_token,
+            'secret' => $profile->access_token_secret
+        ];
+    }
 }

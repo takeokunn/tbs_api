@@ -57,6 +57,7 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::post('programs/{programId}/salelist', 'V1\StockListController@createSaleList');
 
         // for develop
+        Route::get('tweet', 'V1\TestController@tweet');
         Route::get('jwt_test', function () {});
     });
 });
