@@ -29,4 +29,14 @@ class StockListService
 
         return $stock_list;
     }
+
+    /**
+     * get stock buy list
+     * @param  int    $programId_
+     * @return Object
+     */
+    public function getBuyListAll(int $programId_)
+    {
+        return ProgramBuyList::where('program_id', '=', $programId_)->get();
+    }
 }

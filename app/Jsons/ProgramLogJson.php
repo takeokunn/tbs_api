@@ -6,7 +6,12 @@ namespace App\Jsons;
 
 trait ProgramLogJson
 {
-    public function successGotProgramLogs($data_) : array
+    /**
+     * json format if success get program logs
+     * @param  Object $data_
+     * @return array
+     */
+    private function successGotProgramLogs($data_) : array
     {
         return [
             'status'  => 'success',

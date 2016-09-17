@@ -30,6 +30,22 @@ class StockListController extends Controller
     }
 
     /**
+     * get stock buy list
+     * @param  int $programId
+     * @return json
+     */
+    public function getBuylist($programId)
+    {
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+
+        $stock_lists = $this->stock_list->getAll(intval($programId));
+
+        return response()->json($this->successGetStockBuyList($stock_lists), 200);
+    }
+
+    /**
      * create stock buy list
      * @param  Request $request
      * @return json
