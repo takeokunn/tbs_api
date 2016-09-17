@@ -84,5 +84,23 @@ class StockListTest extends TestCase
             'invalid argument',
             ['number' => 1, 'price' => 1, 'type' => 'hogehoge']
         );
+
+        /**
+         * get stock sale list
+         */
+        // success
+        $this->getMethod(
+            '/api/v1/programs/1/salelist?token=' . $token,
+            'success get stock sale list'
+        );
+        // failure
+        $this->getMethod(
+            '/api/v1/programs/hogehoge/salelist?token=' . $token,
+            'invalid parameter'
+        );
+        $this->getMethod(
+            '/api/v1/programs/11111/salelist?token=' . $token,
+            'program not exist'
+        );
     }
 }
