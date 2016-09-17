@@ -37,7 +37,7 @@ class StockListController extends Controller
      * @param  int $programId
      * @return json
      */
-    public function getBuylist($programId)
+    public function getBuyList($programId)
     {
         if(!is_numeric($programId)) {
             return response()->json($this->invalidParameter(), 400);
@@ -56,7 +56,7 @@ class StockListController extends Controller
      * @param  Request $request
      * @return json
      */
-    public function createBuylist(Request $request, $programId)
+    public function createBuyList(Request $request, $programId)
     {
         $me   = $this->user->getLoginedUser();
         $data = $request->only('number', 'price', 'type');
@@ -78,7 +78,7 @@ class StockListController extends Controller
         }
         $this->stock_list->createBuyList($me->id, intval($programId), intval($data['number']), intval($data['price']), $data['type']);
 
-        return response()->json($this->successCreatedStockBuyList(), 200);
+        return response()->json($this->successCreatedStockBuyList(), 201);
     }
 
     /**
@@ -87,7 +87,7 @@ class StockListController extends Controller
      * @param  int  $programId
      * @return json
      */
-    public function getSalelist(Request $request, $programId)
+    public function getSaleList(Request $request, $programId)
     {
         if(!is_numeric($programId)) {
             return response()->json($this->invalidParameter(), 400);
@@ -99,5 +99,35 @@ class StockListController extends Controller
         $stock_lists = $this->stock_list->getSaleListAll(intval($programId));
 
         return response()->json($this->successGotStockSaleList($stock_lists), 200);
+    }
+
+    /**
+     * create stock buy list
+     * @param  Request $request
+     * @return json
+     */
+    public function createSaleList(Request $request, $programId)
+    {
+        $me   = $this->user->getLoginedUser();
+        $data = $request->only('number', 'price', 'type');
+        $type_arr = ['', 'limit', 'market'];
+
+        // validation
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+        if(
+            empty($data['number'])
+            || empty($data['price'])
+            || empty($data['type'])
+            || !is_numeric($data['number'])
+            || !is_numeric($data['price'])
+            || !array_search($data['type'], $type_arr)
+        ) {
+            return response()->json($this->invalidArgument(), 400);
+        }
+        $this->stock_list->createSaleList($me->id, intval($programId), intval($data['number']), intval($data['price']), $data['type']);
+
+        return response()->json($this->successCreatedStockSaleList(), 201);
     }
 }

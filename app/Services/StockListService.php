@@ -31,6 +31,28 @@ class StockListService
     }
 
     /**
+     * create stock sale list
+     * @param  int    $userId_
+     * @param  int    $programId_
+     * @param  int    $number_
+     * @param  int    $price
+     * @param  string $type
+     * @return Object
+     */
+    public function createSaleList(int $userId_, int $programId_, int $number_, int $price_, string $type_)
+    {
+        $stock_list = new ProgramSaleList;
+        $stock_list->user_id    = $userId_;
+        $stock_list->program_id = $programId_;
+        $stock_list->number     = $number_;
+        $stock_list->price      = $price_;
+        $stock_list->type       = $type_;
+        $stock_list->save();
+
+        return $stock_list;
+    }
+
+    /**
      * get stock buy list
      * @param  int    $programId_
      * @return Object

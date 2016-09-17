@@ -49,9 +49,10 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::post('programs/{programId}/stocks', 'V1\StockController@deal');
 
         // stock (buy|sell) list
-        Route::get ('programs/{programId}/buylist', 'V1\StockListController@getBuylist');
-        Route::post('programs/{programId}/buylist', 'V1\StockListController@createBuylist');
-        Route::get ('programs/{programId}/salelist', 'V1\StockListController@getSalelist');
+        Route::get ('programs/{programId}/buylist', 'V1\StockListController@getBuyList');
+        Route::post('programs/{programId}/buylist', 'V1\StockListController@createBuyList');
+        Route::get ('programs/{programId}/salelist', 'V1\StockListController@getSaleList');
+        Route::post('programs/{programId}/salelist', 'V1\StockListController@createSaleList');
 
         // for develop
         Route::get('jwt_test', function () {});

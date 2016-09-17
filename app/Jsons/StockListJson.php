@@ -48,4 +48,13 @@ trait StockListJson
             'message' => 'success get stock sale list'
         ];
     }
+
+    private function successCreatedStockSaleList() : array
+    {
+        return [
+            'status'  => 'create',
+            'code'    => 201,
+            'message' => 'success create stock sale list'
+        ];
+    }
 }
