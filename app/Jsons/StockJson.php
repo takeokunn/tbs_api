@@ -87,4 +87,33 @@ trait StockJson
             'message' => 'success deal stocks'
         ];
     }
+
+    /**
+     * json format which count program fun by program_id
+     * @return array
+     */
+    private function successCountProgramFun($count_) : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'count'   => $count_,
+            'message' => 'success count progra_fun in stock'
+        ];
+    }
+
+    /**
+     * json format which count stocks by program_id
+     * @return array
+     */
+    private function successCountStocks($count_) : array
+    {
+        return [
+            'status'  => 'success',
+            'code'    => 200,
+            'count'   => $count_,
+            'message' => 'success count stocks by program_id'
+        ];
+    }
+
 }

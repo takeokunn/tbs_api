@@ -118,4 +118,31 @@ class StockController extends Controller
 
         return response()->json($this->successGotStocksByUserId($stocks), 200);
     }
+
+    /**
+     * count program_fun by program_id
+     * @param  int $programId
+     * @return json
+     */
+    public function countUsers($programId)
+    {
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+
+        $count = $this->stock->countUsersByProgramId(intval($programId));
+
+        return response()->json($this->successCountProgramFun(intval($count)), 200);
+    }
+
+    public function countStocks($programId)
+    {
+        if(!is_numeric($programId)) {
+            return response()->json($this->invalidParameter(), 400);
+        }
+
+        $count = $this->stock->countStocksByProgramId(intval($programId));
+
+        return response()->json($this->successCountStocks(intval($count)), 200);
+    }
 }

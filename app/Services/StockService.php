@@ -81,15 +81,37 @@ class StockService
      * @param  int    $number_
      * @return Object
      */
-    public function create(int $programId_, int $userId_, int $number_)
+    public function create(int $userId_, int $programId_, int $number_)
     {
         $stock = new Stock;
-        $stock->program_id   = $programId_;
         $stock->user_id      = $userId_;
+        $stock->program_id   = $programId_;
         $stock->stock_number = $number_;
         $stock->save();
 
         return $stock;
+    }
+
+    /**
+     * count program_fum by program_id
+     * @param  int    $programId_
+     * @return int
+     */
+    public function countUsersByProgramId(int $programId_)
+    {
+        $count = Stock::where('program_id', '=', $programId_)
+                    ->groupBy('user_id')
+                    ->count()
+        ;
+
+        return $count;
+    }
+
+    public function countStocksByProgramId(int $programId_)
+    {
+        $count = Stock::where('program_id', '=', $programId_)->count();
+
+        return $count;
     }
 
     /**

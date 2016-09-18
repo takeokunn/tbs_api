@@ -20,7 +20,7 @@ Route::group(['prefix' => '/api/v1'], function ()
     // auth
     Route::post('auth/register', 'V1\UserController@register');
     Route::post('auth/login'   , 'V1\UserController@login');
-    Route::get('auth/twitter', 'V1\OAuthController@loginWithTwitter');
+    Route::get ('auth/twitter', 'V1\OAuthController@loginWithTwitter');
 
     Route::group(['middleware' => 'jwt.auth.user'], function ()
     {
@@ -49,8 +49,10 @@ Route::group(['prefix' => '/api/v1'], function ()
         Route::post('programs/{programId}/logs', 'V1\ProgramLogController@create');
 
         // program/stocks
-        Route::get ('programs/{programId}/stocks', 'V1\StockController@index');
-        Route::post('programs/{programId}/stocks', 'V1\StockController@deal');
+        Route::get ('programs/{programId}/stocks',            'V1\StockController@index');
+        Route::post('programs/{programId}/stocks',            'V1\StockController@deal');
+        Route::get ('programs/{programId}/stocks/count/user', 'V1\StockController@countUsers');
+        Route::get ('programs/{programId}/stocks/count',      'V1\StockController@countStocks');
 
         // stock (buy|sell) list
         Route::get ('programs/{programId}/buylist', 'V1\StockListController@getBuyList');
