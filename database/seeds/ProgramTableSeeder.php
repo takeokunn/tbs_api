@@ -19,10 +19,10 @@ class ProgramTableSeeder extends AppSeeder
         DB::table('programs')->delete();
 
         $programs = [
-            ['name' => '水曜日のダウンタウン', 'image_url' => ''],
-            ['name' => '林先生の初耳学'     , 'image_url' => ''],
-            ['name' => 'HKT48のおでかけ！'  , 'image_url' => ''],
-            ['name' => 'ゴロウデラックス'    , 'image_url' => '']
+            ['name' => '水曜日のダウンタウン', 'image_url' => 'img/suilogo.png'],
+            ['name' => '林先生の初耳学'     , 'image_url' => 'img/hatsumimi_logo.png'],
+            ['name' => 'HKT48のおでかけ！'  , 'image_url' => 'img/HKT_Logo.png'],
+            ['name' => 'ゴロウデラックス'    , 'image_url' => 'img/gorou_Logo.png']
         ];
 
         foreach ($programs as $index => $program) {
