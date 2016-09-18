@@ -19,15 +19,14 @@ class ProgramTableSeeder extends AppSeeder
         DB::table('programs')->delete();
 
         $programs = [
-            ['name' => 'program1'],
-            ['name' => 'program2'],
-            ['name' => 'program3'],
-            ['name' => 'program4'],
-            ['name' => 'program5'],
+            ['name' => '水曜日のダウンタウン', 'image_url' => ''],
+            ['name' => '林先生の初耳学'     , 'image_url' => ''],
+            ['name' => 'HKT48のおでかけ！'  , 'image_url' => ''],
+            ['name' => 'ゴロウデラックス'    , 'image_url' => '']
         ];
 
         foreach ($programs as $index => $program) {
-            $programData = $this->program->create($program['name']);
+            $programData = $this->program->create($program['name'], $program['image_url']);
             $this->changeId($programData, $index + 1);
         }
     }

@@ -38,14 +38,16 @@ class ProgramService
     }
 
     /**
-     * create program
+     * create program and program_info
      * @param  string $name_
+     * @param  (string|null) $image_url_
      * @return Object
      */
-    public function create(string $name_)
+    public function create(string $name_, string $image_url_ = null)
     {
         $program = new Program;
-        $program->name = $name_;
+        $program->name      = $name_;
+        $program->image_url = $image_url_;
         $program->save();
 
         return $program;
